@@ -152,13 +152,43 @@
     pointer-events: none;
   }
 
-  .video-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(20, 10, 40, 0.68);
-    z-index: -1;
-    pointer-events: none;
-  }
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 5, 25, 0.58);
+  z-index: -1;
+  pointer-events: none;
+}
+
+  /* ===== TEXT VISIBILITY OVER VIDEO ===== */
+
+.hero .greeting,
+.hero .date,
+.hero > p:last-child,
+figcaption,
+footer {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.hero .greeting,
+.hero .date,
+.hero > p:last-child,
+figcaption {
+  color: #FFFFFF;
+}
+
+.hero h1 {
+  color: #FF4D8D;
+  text-shadow:
+    0 3px 0 #1B1340,
+    0 5px 15px rgba(0, 0, 0, 0.9);
+}
+
+.note {
+  box-shadow:
+    8px 8px 0 #FF4D8D,
+    0 8px 25px rgba(0, 0, 0, 0.35);
+}
   
   @media (prefers-reduced-motion: reduce) {
     .hero h1 span, .record.spinning { animation: none; }
