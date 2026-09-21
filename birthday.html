@@ -141,53 +141,73 @@
 
   canvas#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
   
-  /* ===== BACKGROUND VIDEO ===== */
-  #bgVideo {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-    pointer-events: none;
-  }
+/* ===== BACKGROUND VIDEO ===== */
+
+#bgVideo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
 
 .video-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 5, 25, 0.58);
+  background: rgba(10, 5, 25, 0.55);
   z-index: -1;
   pointer-events: none;
 }
 
-  /* ===== TEXT VISIBILITY OVER VIDEO ===== */
+/* ===== MAKE TEXT CLEAR OVER VIDEO ===== */
 
-.hero .greeting,
-.hero .date,
-.hero > p:last-child,
-figcaption,
-footer {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
-}
-
-.hero .greeting,
-.hero .date,
-.hero > p:last-child,
-figcaption {
+.hero .greeting {
   color: #FFFFFF;
+  text-shadow:
+    2px 2px 0 #000000,
+    0 0 10px rgba(0, 0, 0, 0.9);
 }
 
+.hero .date {
+  color: #FFFFFF;
+  text-shadow:
+    2px 2px 0 #000000,
+    0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.hero > p:last-child {
+  color: #FFFFFF;
+  font-weight: 800;
+  text-shadow:
+    2px 2px 0 #000000,
+    0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Ravenah */
 .hero h1 {
   color: #FF4D8D;
   text-shadow:
-    0 3px 0 #1B1340,
-    0 5px 15px rgba(0, 0, 0, 0.9);
+    3px 3px 0 #000000,
+    -2px -2px 0 #1B1340,
+    0 0 15px rgba(0, 0, 0, 0.9);
 }
 
-.note {
-  box-shadow:
-    8px 8px 0 #FF4D8D,
-    0 8px 25px rgba(0, 0, 0, 0.35);
+/* Song caption */
+figcaption {
+  color: #FFFFFF;
+  text-shadow:
+    2px 2px 0 #000000,
+    0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Footer */
+footer {
+  color: #FFFFFF;
+  text-shadow:
+    2px 2px 0 #000000,
+    0 0 10px rgba(0, 0, 0, 0.9);
 }
   
   @media (prefers-reduced-motion: reduce) {
