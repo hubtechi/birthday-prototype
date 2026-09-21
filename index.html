@@ -1,0 +1,327 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Something Special...</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at center, #21152d 0%, #09070d 45%, #000 100%);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+    }
+
+    /* Background stars */
+    .stars {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+        0%, 100% {
+            opacity: 0.15;
+            transform: scale(0.7);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1.4);
+        }
+    }
+
+    .container {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+    }
+
+    /* Top message */
+    .small-text {
+        font-size: 14px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: #aaa;
+        margin-bottom: 15px;
+        animation: fadeDown 1.5s ease forwards;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 12vw, 7rem);
+        letter-spacing: 8px;
+        text-transform: uppercase;
+
+        background: linear-gradient(
+            90deg,
+            #fff,
+            #ffd84d,
+            #fff,
+            #ff4d8d,
+            #fff
+        );
+
+        background-size: 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        animation:
+            titleGlow 5s linear infinite,
+            fadeUp 1.5s ease forwards;
+
+        text-shadow: 0 0 30px rgba(255, 216, 77, 0.2);
+    }
+
+    @keyframes titleGlow {
+        0% {
+            background-position: 0%;
+        }
+
+        100% {
+            background-position: 300%;
+        }
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Pikachu */
+    .character {
+        position: relative;
+        width: min(280px, 65vw);
+        margin: 30px 0;
+        animation: float 3s ease-in-out infinite;
+        filter:
+            drop-shadow(0 0 15px rgba(255, 215, 60, 0.6))
+            drop-shadow(0 0 50px rgba(255, 180, 40, 0.3));
+    }
+
+    .character img {
+        width: 100%;
+        display: block;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    /* Glow underneath character */
+    .glow {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 30px;
+        background: #ffd23f;
+        filter: blur(35px);
+        opacity: 0.4;
+        z-index: -1;
+    }
+
+    /* Message */
+    .message {
+        color: #bdbdbd;
+        font-size: 16px;
+        max-width: 500px;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+
+    /* Button */
+    .enter-btn {
+        position: relative;
+        display: inline-block;
+        padding: 16px 38px;
+
+        color: #111;
+        background: #ffd23f;
+
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        border-radius: 50px;
+
+        box-shadow:
+            0 0 10px rgba(255, 210, 63, 0.7),
+            0 0 35px rgba(255, 210, 63, 0.35);
+
+        transition: 0.25s ease;
+
+        animation: buttonPulse 2s infinite;
+    }
+
+    .enter-btn:hover {
+        transform: scale(1.08);
+        background: white;
+
+        box-shadow:
+            0 0 15px white,
+            0 0 45px rgba(255, 210, 63, 0.8);
+    }
+
+    @keyframes buttonPulse {
+        0%, 100% {
+            box-shadow:
+                0 0 10px rgba(255, 210, 63, 0.7),
+                0 0 35px rgba(255, 210, 63, 0.3);
+        }
+
+        50% {
+            box-shadow:
+                0 0 20px rgba(255, 210, 63, 1),
+                0 0 60px rgba(255, 210, 63, 0.5);
+        }
+    }
+
+    .warning {
+        margin-top: 18px;
+        font-size: 11px;
+        letter-spacing: 3px;
+        color: #555;
+        text-transform: uppercase;
+    }
+
+    /* Cinematic vignette */
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+
+        box-shadow:
+            inset 0 0 180px rgba(0,0,0,0.95);
+
+        z-index: 20;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+
+        h1 {
+            letter-spacing: 4px;
+        }
+
+        .message {
+            font-size: 14px;
+        }
+
+        .character {
+            width: 220px;
+        }
+
+        .enter-btn {
+            padding: 14px 28px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="stars">
+
+    <div class="star" style="top:10%; left:15%; animation-delay:.2s"></div>
+    <div class="star" style="top:20%; left:80%; animation-delay:1s"></div>
+    <div class="star" style="top:35%; left:8%; animation-delay:2s"></div>
+    <div class="star" style="top:50%; left:90%; animation-delay:.5s"></div>
+    <div class="star" style="top:70%; left:18%; animation-delay:1.5s"></div>
+    <div class="star" style="top:80%; left:75%; animation-delay:.7s"></div>
+    <div class="star" style="top:15%; left:50%; animation-delay:1.8s"></div>
+    <div class="star" style="top:60%; left:55%; animation-delay:2.5s"></div>
+
+</div>
+
+<div class="container">
+
+    <div class="small-text">
+        A little something for you
+    </div>
+
+    <h1>Ravenah</h1>
+
+    <div class="character">
+
+        <!-- Put your Pikachu image in the same folder and name it pikachu.png -->
+        <img src="pikachu.png" alt="Pikachu">
+
+        <div class="glow"></div>
+
+    </div>
+
+    <p class="message">
+        There is something waiting for you...
+        <br>
+        But you have to open it first.
+    </p>
+
+    <a href="birthday.html" class="enter-btn">
+        ✨ Enter Your Surprise ✨
+    </a>
+
+    <div class="warning">
+        Best experienced with sound 🔊
+    </div>
+
+</div>
+
+</body>
+</html>
+```
