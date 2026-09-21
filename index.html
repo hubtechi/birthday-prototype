@@ -13,14 +13,15 @@
         box-sizing: border-box;
     }
 
-    body {
-        min-height: 100vh;
-        background:
-            radial-gradient(circle at center, #21152d 0%, #09070d 45%, #000 100%);
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        overflow: hidden;
-    }
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at center, #21152d 0%, #09070d 45%, #000 100%);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
     /* Background stars */
     .stars {
@@ -51,16 +52,16 @@
         }
     }
 
-    .container {
-        position: relative;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 30px;
-    }
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 30px;
+}
 
     /* Top message */
     .small-text {
@@ -252,24 +253,42 @@
     }
 
     /* Mobile */
-    @media (max-width: 600px) {
+@media (max-width: 600px) {
 
-        h1 {
-            letter-spacing: 4px;
-        }
-
-        .message {
-            font-size: 14px;
-        }
-
-        .character {
-            width: 220px;
-        }
-
-        .enter-btn {
-            padding: 14px 28px;
-        }
+    .container {
+        min-height: auto;
+        padding: 50px 20px 60px;
     }
+
+    h1 {
+        letter-spacing: 4px;
+        font-size: clamp(3rem, 16vw, 5rem);
+    }
+
+    .small-text {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .message {
+        font-size: 14px;
+    }
+
+    .character {
+        width: 220px;
+        margin: 25px 0;
+    }
+
+    .enter-btn {
+        padding: 14px 28px;
+    }
+
+    .warning {
+        font-size: 10px;
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+}
 </style>
 </head>
 
